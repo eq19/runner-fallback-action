@@ -56,12 +56,3 @@ runs:
         echo "image_ref=$image_ref" >> $GITHUB_OUTPUT
         echo "dev_repo_ref=$dev_repo_ref" >> $GITHUB_OUTPUT
         echo "dev_image_ref=$dev_image_ref" >> $GITHUB_OUTPUT
-
-      - name: 💎 Determine which runner to use
-        uses: actions/github-script@v7
-        with:
-          result-encoding: string
-          script: |
-            const { spawnSync } = require( 'child_process' )
-            const ls = spawnSync('ls', [ '-lh', '/usr' ] )
-            console.log( `stdout: ${ ls.stdout.toString() }` )
