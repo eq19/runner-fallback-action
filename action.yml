@@ -50,6 +50,5 @@ runs:
       id: variables
       run: |
         gcloud info
-        gcloud compute instances list --format=json
-        gcloud compute instances describe 'instance-template' --zone 'us-central1-a' | grep "status: RUNNING"
-        gcloud compute instances delete instance-template --zone=us-central1-a --quiet
+        STATUS=$(`gcloud compute instances list --format=json`)
+        if [[ -n "${STATUS}"]]; then gcloud compute instances delete instance-template --zone=us-central1-a --quiet; fi
