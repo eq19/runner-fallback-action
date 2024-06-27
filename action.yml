@@ -50,5 +50,4 @@ runs:
       id: variables
       run: |
         gcloud info
-        gcloud compute instance-groups managed list-instances
         gcloud compute instances delete instance-template --zone=us-central1-a
