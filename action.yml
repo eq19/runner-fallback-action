@@ -50,4 +50,5 @@ runs:
       id: variables
       run: |
         gcloud info
-        gcloud compute instances delete instance-template --zone=us-central1-a --quiet
+
+#gcloud compute instances delete instance-template --zone=us-central1-a --quiet
