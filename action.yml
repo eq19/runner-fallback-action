@@ -51,4 +51,4 @@ runs:
       run: |
         gcloud info
         gcloud compute instance-groups managed list-instances
-        gcloud compute instances delete instance-1 --zone=us-central2-a
+        gcloud compute instances delete instance-template --zone=us-central1-a
