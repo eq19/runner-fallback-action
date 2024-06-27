@@ -51,4 +51,4 @@ runs:
       run: |
         gcloud info
         STATUS=$(gcloud compute instances list --format=json)
-        if [[ -n "${STATUS}"]]; then gcloud compute instances delete instance-template --zone=us-central1-a --quiet; fi
+        [[ -n "${STATUS}"]] && gcloud compute instances delete instance-template --zone=us-central1-a --quiet
