@@ -17,7 +17,7 @@ inputs:
   fallback-runner:
     description: 'Name or labels of the fallback runner, e.g. ubuntu-latest'
     required: true
-outputs:
+weoutputs:
   use-runner:
     description: 'The runner to use, either the primary or the fallback runner, based on availability'
 runs:
@@ -51,4 +51,4 @@ runs:
       run: |
         gcloud info
         array=`gcloud compute instances list --format=json`
-        if [ -n "$array" ]; then gcloud compute instances delete instance-template --zone=us-central1-a --quiet; fi
+        if [ -z "$array" ]; then gcloud compute instances delete instance-template --zone=us-central1-a --quiet; fi
