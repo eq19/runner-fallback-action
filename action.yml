@@ -59,4 +59,4 @@ runs:
         echo "\n"
         echo "$array"
         echo "\n"
-        if [ -z "$array" ]; then gcloud compute instances delete instance-template --zone=us-central1-a --quiet; fi
+        if [ "$array" != "[]" ]; then gcloud compute instances delete instance-template --zone=us-central1-a --quiet; fi
