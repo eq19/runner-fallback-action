@@ -50,13 +50,5 @@ runs:
       id: variables
       run: |
         gcloud info
-        echo "\n"
-        gcloud compute instances list
-        echo "\n"
-        gcloud compute instances list --format=json
-        echo "\n"
         array=`gcloud compute instances list --format=json`
-        echo "\n"
-        echo "$array"
-        echo "\n"
         if [ "$array" != "[]" ]; then gcloud compute instances delete instance-template --zone=us-central1-a --quiet; fi
