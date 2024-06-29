@@ -21,34 +21,5 @@ weoutputs:
   use-runner:
     description: 'The runner to use, either the primary or the fallback runner, based on availability'
 runs:
-  #using: 'node20'
-  #main: 'dist/index.js'
-  using: composite
-  steps:
-    - name: 💎 Set Credential
-      id: 'auth'
-      uses: 'google-github-actions/auth@v2'
-      with:
-        credentials_json: ${{ inputs.credentials }}
-
-    - name: 💎 Authentication
-      uses: 'google-github-actions/setup-gcloud@v2'
-      with:
-        install_components: 'alpha,cloud-datastore-emulator'
-
-    - name: 💎 Determine which runner to use
-      uses: actions/github-script@v7
-      with:
-        result-encoding: string
-        script: |
-          const { spawnSync } = require( 'child_process' )
-          const ls = spawnSync('ls', [ '-lh', '/usr' ] )
-          console.log( `stdout: ${ ls.stdout.toString() }` )
-
-    - name: 💎 Variables
-      shell: bash
-      id: variables
-      run: |
-        gcloud info
-        array=`gcloud compute instances list --format=json`
-        if [ "$array" != "[]" ]; then gcloud compute instances delete instance-template --zone=us-central1-a --quiet; fi
+  using: 'node20'
+  main: 'dist/index.js'
